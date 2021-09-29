@@ -10,4 +10,5 @@ public class PixApplication {
 		SpringApplication.run(PixApplication.class, args);
 	}
 
+
 }
