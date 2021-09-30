@@ -11,13 +11,13 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
-    @Column
+    @Column(nullable = false)
     private String sobrenome;
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = {CascadeType.ALL})
     private ContaCorrente contaCorrente;
 
 }

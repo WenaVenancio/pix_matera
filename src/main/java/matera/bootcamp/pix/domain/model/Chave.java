@@ -3,23 +3,22 @@ package matera.bootcamp.pix.domain.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Data
 @Entity
-public class ContaCorrente {
+public class Chave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Long agencia;
+    @Enumerated(EnumType.ORDINAL)
+    private TipoChave tipoChave;
 
     @Column(nullable = false)
-    private Long conta;
+    private String valor;
 
-    @Column(precision = 10, scale = 2, nullable = false)
-    private BigDecimal saldo;
-
+    @ManyToOne(optional = false)
+    private ContaCorrente contaCorrente;
 }
